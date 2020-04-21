@@ -25,6 +25,11 @@ class TasksController < ApplicationController
     redirect_to action: :index
   end
 
+  def destroy
+    task = Task.find(params[:id])
+    task.destroy
+  end
+
   private
   def task_params
       params.require(:task).permit(:title, :content)
