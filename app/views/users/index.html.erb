@@ -1,0 +1,8 @@
+<%= link_to "投稿画面へ", new_user_path %>
+<% @users.each do |user| %>
+  <p>
+    <!-- 以下の2行のコードを追加 -->
+    <%= user.name %>
+    <%= user.age %>
+  </p>
+<% end %>
