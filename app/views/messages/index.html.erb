@@ -1,0 +1,8 @@
+<h1>メッセージ 一覧</h1>
+<%= link_to "投稿画面へ", new_message_path %>
+<% @messages.each do |message| %>
+<p>
+  <%= message.title %>
+  <%= message.content %>
+</p>
+<% end %>
