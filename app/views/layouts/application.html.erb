@@ -10,7 +10,11 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
-    <%= yield %>
+      <blockquote class="blockquote text-center">
+        <div class="mt-5">
+          <%= render "layouts/header" %>
+          <%= yield %>
+        </div>
+      </blockquote>
   </body>
 </html>
