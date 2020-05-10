@@ -5,12 +5,14 @@
 
 @import "bootstrap";
 
-
 a {
     text-decoration: none;
-    
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+td {
+    white-space: nowrap;
 }

@@ -7,14 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
-
+  
   <body>
-      <blockquote class="blockquote text-center">
-        <div class="mt-5">
+    <div class="mx-auto" style="width: 680px;">
           <%= render "layouts/header" %>
           <%= yield %>
-        </div>
-      </blockquote>
+    </div>
   </body>
 </html>
