@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+    redirect_to :action => 'index'
     Message.create(message_params)
   end
 
@@ -20,11 +21,13 @@ class MessagesController < ApplicationController
   end
 
   def update
+    redirect_to :action => 'index'
     message = Message.find(params[:id])
     message.update(message_params)
   end
 
   def destroy
+    redirect_to :action => 'index'
     message = Message.find(params[:id])
     message.destroy
   end
