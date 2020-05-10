@@ -12,8 +12,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    redirect_to :action => 'index'
-    Message.create(message_params)
+    @message = Message.new(message_params)
+    if @message.save
+      redirect_to messages_path, notice: "メッセージを登録しました。"
+    else
+      flash.now[:alert] = "メッセージの登録に失敗しました。"
+      render :new
+    end
   end
 
   def edit
@@ -27,13 +32,17 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    redirect_to :action => 'index'
     message = Message.find(params[:id])
     message.destroy
+    redirect_to messages_path, alert: "メッセージを削除しました。"
   end
 
   private 
   def message_params
     params.require(:message).permit(:title, :content)
+  end
+
+  def set_message
+    @message = Message.find(params[:id])
   end
 end
