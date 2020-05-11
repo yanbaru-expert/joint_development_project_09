@@ -1,6 +1,9 @@
 class MessagesController < ApplicationController
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
+
   def index
-    @messages = Message.all
+    @messages = Message.all(params[:id])
+    # @messages = Message.all
   end
   
   def show
@@ -26,15 +29,23 @@ class MessagesController < ApplicationController
   end
 
   def update
-    redirect_to :action => 'index'
-    message = Message.find(params[:id])
-    message.update(message_params)
+    if @message.update(message_params)
+      redirect_to messages_path, notice: "メッセージを編集しました。"
+    else
+      flash.now[:alert] = "メッセージの編集に失敗しました。"
+      render :edit
+    end
+    # message = Message.find(params[:id])
+    # message.update(message_params)
+    # redirect_to messages_path, notice: "メッセージを編集しました。"
   end
+  
 
   def destroy
     message = Message.find(params[:id])
     message.destroy
     redirect_to messages_path, alert: "メッセージを削除しました。"
+    end
   end
 
   private 
@@ -45,4 +56,3 @@ class MessagesController < ApplicationController
   def set_message
     @message = Message.find(params[:id])
   end
-end
