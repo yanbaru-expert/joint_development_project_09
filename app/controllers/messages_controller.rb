@@ -2,8 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   def index
-    @messages = Message.all(params[:id])
-    # @messages = Message.all
+    @messages = Message.order("id DESC")
   end
   
   def show
@@ -35,9 +34,6 @@ class MessagesController < ApplicationController
       flash.now[:alert] = "メッセージの編集に失敗しました。"
       render :edit
     end
-    # message = Message.find(params[:id])
-    # message.update(message_params)
-    # redirect_to messages_path, notice: "メッセージを編集しました。"
   end
   
 
