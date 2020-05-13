@@ -7,10 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
-
+  <%= render "layouts/flash" %>
   <body>
-    <%= render "layouts/header" %>
-    <%= yield %>
+    <div class="mx-auto" style="width: 680px;">
+          <%= render "layouts/header" %>
+          <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,10 +1,16 @@
 <h1>メッセージ 一覧</h1>
-<p><%= link_to "投稿画面へ", new_message_path %></p>
-<% @messages.each do |message| %>
-<p>
-  <%= message.title %>
-  <%= link_to "詳細", message_path(message.id) %>
-  <%= link_to "編集", edit_message_path(message.id) %>
-  <%= link_to "削除", message_path(message.id), method: :delete, data: { confirm: "削除しますか?" } %>
-</p>
-<% end %>
+<hr>
+  <p><%= link_to "新規投稿", new_message_path, class: 'btn btn-info btn-block' %></p>
+<table class="table">
+  <tbody>
+    <tr>
+      <% @messages.each do |message| %>
+      <td class="w-100"><%= message.title %></td>
+      <td><%= link_to "詳細", message_path(message.id), class: 'btn btn-primary' %></td>
+      <td><%= link_to "編集", edit_message_path(message.id), class: 'btn btn-success' %></td>
+      <td><%= link_to "削除", message_path(message.id), method: :delete, data: { confirm: "削除しますか?" }, class: 'btn btn-danger' %></td>
+    </tr>
+      <% end %>
+  </tbody>
+</table>
+      

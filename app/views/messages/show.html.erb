@@ -1,4 +1,17 @@
 <h1>メッセージ 詳細</h1>
-<%= @message.title %>
-<%= @message.content %>
-<%= link_to "一覧画面へ", messages_path %>
+<div class="card my-4">
+  <div class="card-header">タイトル</div>
+    <div class="card-body">
+      <%= @message.title%>
+    </div>
+</div>
+
+<div class="card my-4">
+  <div class="card-header">内容</div>
+    <div class="card-body">
+      <%= @message.content%>
+    </div>
+</div>
+
+<hr>
+<p><%= link_to "一覧画面へ", messages_path, class: 'btn btn-info btn-block'  %></p>
